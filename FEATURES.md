@@ -38,6 +38,7 @@ In the tables below, we use a color legend to refer to features in GPzoo:
 
 ## Implementation Notes
 
-- All features are currently marked as not implemented (🔴) since this is the initial project setup
+- Current implementation is a basic JavaScript GP placeholder for integration with other applications
+- Not yet ported from GPzoo Python library - this is interim working code
 - The library will use TypeScript for type safety and Bun for building
 - Multiple output formats (ESM, CJS, UMD) will be provided for different environments
