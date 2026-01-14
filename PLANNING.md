@@ -34,12 +34,17 @@ GPzoo.js/
 ```json
 {
   "scripts": {
-    "build": "bun build ./src/index.ts --outdir ./dist --target node --format esm && bun build ./src/index.ts --outfile ./dist/index.cjs --target node --format cjs && bun build ./src/index.ts --outfile ./dist/index.js --target browser --format umd --name gpzoo",
+    "build": "bun build ./src/index.ts --outfile ./dist/index.mjs && bun build ./src/index.ts --outfile ./dist/index.cjs --format cjs && bun build ./src/index.ts --outfile ./dist/index.js --format iife --global gpzoo",
     "test": "bun test",
     "lint": "bunx @biomejs/biome check src/"
   }
 }
 ```
+
+This generates three distributable formats:
+- `dist/index.mjs` - ESM module for modern bundlers
+- `dist/index.cjs` - CommonJS module for Node.js
+- `dist/index.js` - IIFE for direct browser use
 
 ## Porting Checklist
 
