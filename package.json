@@ -5,16 +5,14 @@
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.cjs"
     }
   },
   "scripts": {
-    "build": "bun build ./src/index.ts --outfile ./dist/index.mjs && bun build ./src/index.ts --outfile ./dist/index.cjs --format cjs && bun build ./src/index.ts --outfile ./dist/index.js --format iife --global gpzoo",
+    "build": "bun build ./src/index.ts --outfile ./dist/index.mjs && bun build ./src/index.ts --outfile ./dist/index.cjs --format cjs",
     "test": "bun test",
     "lint": "bunx @biomejs/biome check src/"
   },
@@ -30,5 +28,8 @@
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@jax-js/jax": "^0.1.6"
   }
 }

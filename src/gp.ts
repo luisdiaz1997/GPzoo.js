@@ -5,7 +5,6 @@
 import {
     linspace,
     transpose,
-    matMul,
     matVec,
     addDiag,
     cholesky,
@@ -15,6 +14,7 @@ import {
 } from './utilities';
 
 import { rbf, matern12, matern32, matern52, KERNEL_FNS, type KernelFn } from './kernels';
+import { numpy } from '@jax-js/jax';
 
 /**
  * Observation point type
@@ -164,7 +164,7 @@ export function sampleFromGP(
         }
     }
 
-    const VtV = matMul(transpose(V), V);
+    const VtV = numpy.matmul(numpy.array(transpose(V)), numpy.array(V)).js() as number[][];
     const Sigma = K_ss.map((row, i) => row.map((v, j) => v - VtV[i][j]));
     const Sigma_jit = addDiag(Sigma, 1e-6);
 

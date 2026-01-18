@@ -35,22 +35,6 @@ export function transpose(A: number[][]): number[][] {
 }
 
 /**
- * Matrix-matrix multiplication
- */
-export function matMul(A: number[][], B: number[][]): number[][] {
-    const [m, n, p] = [A.length, A[0].length, B[0].length];
-    const C = full(m, p, 0);
-    for (let i = 0; i < m; i++) {
-        for (let j = 0; j < p; j++) {
-            for (let k = 0; k < n; k++) {
-                C[i][j] += A[i][k] * B[k][j];
-            }
-        }
-    }
-    return C;
-}
-
-/**
  * Matrix-vector multiplication
  */
 export function matVec(A: number[][], x: number[]): number[] {
